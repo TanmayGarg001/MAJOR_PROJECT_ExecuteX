@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--DEFAULT COLORS-->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--MY COLORS-->
+    <!--Template from: https://www.nordtheme.com/-->
+    <color name="titleBarColor">#111111</color>
+    <color name="bgColor">#292828</color>
+    <color name="headingTextColor">#81A1C1</color>
+    <color name="messageTextColor">#C8CED5</color>
+    <color name="loginHintColor">#9CD3D8DD</color>
+    <color name="loginHintBgColor">#494848</color>
+    <color name="boxStrokeColor">#80CBC4</color>
+    <color name="btnColor">#848D95</color>
+    <color name="btnTextColor">#212121</color>
+    <color name="fancyDividerInputTextColor">#E0F7FA</color>
+    <color name="forgotPassNewUserGoBackColor">#B3E5FC</color>
+
+</resources>

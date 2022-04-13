@@ -1,0 +1,30 @@
+<resources>
+
+    <!--APP-NAME-->
+    <string name="app_name">ExecuteX</string>
+
+    <!--MAIN ACTIVITY STRINGS-->
+    <string name="homePage_hint_for_email">Email</string>
+    <string name="homePage_hint_for_password">Password</string>
+    <string name="homePage_welcome_message">Welcome to ExecuteX</string>
+    <string name="homePage_signInBtn">Sign in</string>
+    <string name="homePage_forgotPassword">Forgot password?</string>
+    <string name="homePage_OR">or</string>
+    <string name="homePage_messageForCreateAcc">New to ExecuteX?</string>
+    <string name="homePage_createAcc"><u>Create Account</u></string>
+
+    <!--SIGNUP ACTIVITY STRINGS-->
+    <string name="signUp_createAcc">Create Account</string>
+    <string name="signUp_heading">Welcome !</string>
+    <string name="signUp_welcome_message">We\'re happy to have you</string>
+    <string name="signUp_OR">Create New Account</string>
+    <string name="signUp_goBack"><u>Go back to login</u></string>
+
+
+    <!--SIGNUP ACTIVITY STRINGS-->
+    <string name="forgotPass_heading">Recover Password</string>
+    <string name="forgotPass_message">Please click below to recover \nyour password</string>
+    <string name="forgotPass_recover">Recover</string>
+    <string name="forgotPass_goBack"><u>Go back to login</u></string>
+
+</resources>

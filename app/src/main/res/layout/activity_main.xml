@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".MainActivity">
+
+    <!--Set reference line at center mid as a relative layout to achieve responsive layout.-->
+    <RelativeLayout
+        android:id="@+id/referenceLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+    <!--App name-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/referenceLine"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="260dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textColor="@color/headingTextColor"
+            android:textSize="46sp" />
+
+    </LinearLayout>
+    <!--Welcome message-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/referenceLine"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="150dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:text="@string/homePage_welcome_message"
+            android:textAlignment="center"
+            android:textColor="@color/messageTextColor"
+            android:textSize="22sp" />
+
+    </LinearLayout>
+    <!--Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/referenceLine"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="5dp"
+        android:textColorHint="@color/loginHintColor"
+        app:boxBackgroundColor="@color/loginHintBgColor"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxStrokeColor="@color/boxStrokeColor"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/boxStrokeColor">
+
+        <EditText
+            android:id="@+id/loginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autofillHints="exampleEmail@email.com"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/homePage_hint_for_email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/fancyDividerInputTextColor"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--Password-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/referenceLine"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="50dp"
+        android:textColorHint="@color/loginHintColor"
+        app:boxBackgroundColor="@color/loginHintBgColor"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxStrokeColor="@color/boxStrokeColor"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/boxStrokeColor"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/loginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="exampleEmail@email.com"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/homePage_hint_for_password"
+            android:inputType="textPassword"
+            android:textColor="@color/fancyDividerInputTextColor"
+            android:textSize="18sp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--Login Button-->
+    <Button
+        android:id="@+id/SignInBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/referenceLine"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/btnColor"
+        android:fontFamily="@font/lato"
+        android:paddingStart="40dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="40dp"
+        android:paddingBottom="10dp"
+        android:text="@string/homePage_signInBtn"
+        android:textAllCaps="false"
+        android:textColor="@color/btnTextColor"
+        android:textSize="18sp"
+        tools:ignore="TextContrastCheck" />
+    <!--Forgot Password-->
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_alignEnd="@id/password"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/lato"
+        android:text="@string/homePage_forgotPassword"
+        android:textAlignment="viewEnd"
+        android:textColor="@color/forgotPassNewUserGoBackColor"
+        android:textSize="15sp" />
+    <!--Fancy Divider -->
+    <LinearLayout
+        android:id="@+id/OrDivider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/SignInBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="80dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/fancyDividerInputTextColor" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/homePage_OR"
+            android:textColor="@color/fancyDividerInputTextColor"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/fancyDividerInputTextColor" />
+    </LinearLayout>
+    <!--New user account creation-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/OrDivider"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:text="@string/homePage_messageForCreateAcc"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/newAccountCreation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:text="@string/homePage_createAcc"
+            android:textColor="@color/forgotPassNewUserGoBackColor"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

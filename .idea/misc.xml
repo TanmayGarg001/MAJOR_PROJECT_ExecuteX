@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Programming/0_AndroidDevelopment/4AndroidBasics_DataStorage/Lesson1/ExecuteX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2975" />
+        <entry key="..\:/Programming/0_AndroidDevelopment/4AndroidBasics_DataStorage/Lesson1/ExecuteX/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2975" />
+        <entry key="..\:/Programming/0_AndroidDevelopment/4AndroidBasics_DataStorage/Lesson1/ExecuteX/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.312" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/drawable/ic_launcher_background.xml" value="0.312" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/font/fira_mono_medium.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/font/lato.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/font/open_sans_light.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/font/roboto.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/font/source_sans_pro_semibold.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/layout-v28/activity_main.xml" value="0.3875" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/layout/activity_forgot_password.xml" value="0.3875" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/layout/activity_main.xml" value="0.3745471014492754" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/layout/activity_sign_up.xml" value="0.3745471014492754" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/ExecuteX/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.312" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.312" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/font/lato.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/font/roboto.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/font/source_sans_pro_semibold.xml" value="0.41770833333333335" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/layout/activity_forgot_password.xml" value="0.3582427536231884" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/layout/activity_main.xml" value="0.3582427536231884" />
+        <entry key="..\:/Programming/1_PROJECTS/2ExecuteX/versions/v0.1.1/app/src/main/res/layout/activity_sign_up.xml" value="0.3582427536231884" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
