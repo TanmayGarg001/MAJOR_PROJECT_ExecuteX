@@ -112,12 +112,12 @@
     </com.google.android.material.textfield.TextInputLayout>
     <!--Login Button-->
     <Button
-        android:id="@+id/SignInBtn"
+        android:id="@+id/signInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/referenceLine"
         android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="110dp"
         android:backgroundTint="@color/btnColor"
         android:fontFamily="@font/lato"
         android:paddingStart="40dp"
@@ -141,13 +141,13 @@
         android:text="@string/homePage_forgotPassword"
         android:textAlignment="viewEnd"
         android:textColor="@color/forgotPassNewUserGoBackColor"
-        android:textSize="15sp" />
+        android:textSize="18sp" />
     <!--Fancy Divider -->
     <LinearLayout
         android:id="@+id/OrDivider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/SignInBtn"
+        android:layout_below="@id/signInBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="80dp"
         android:layout_marginTop="40dp"
@@ -194,10 +194,10 @@
             android:paddingEnd="2dp"
             android:text="@string/homePage_messageForCreateAcc"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/newAccountCreation"
+            android:id="@+id/createNewAcc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato"
@@ -205,7 +205,7 @@
             android:paddingEnd="2dp"
             android:text="@string/homePage_createAcc"
             android:textColor="@color/forgotPassNewUserGoBackColor"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 

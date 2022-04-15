@@ -21,9 +21,9 @@
     <string name="signUp_goBack"><u>Go back to login</u></string>
 
 
-    <!--SIGNUP ACTIVITY STRINGS-->
+    <!--FORGOT PASSWORD ACTIVITY STRINGS-->
     <string name="forgotPass_heading">Recover Password</string>
-    <string name="forgotPass_message">Please click below to recover \nyour password</string>
+    <string name="forgotPass_message">Please enter your email to recover \nthe password</string>
     <string name="forgotPass_recover">Recover</string>
     <string name="forgotPass_goBack"><u>Go back to login</u></string>
 

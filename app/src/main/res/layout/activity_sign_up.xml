@@ -103,7 +103,7 @@
         app:hintTextColor="@color/boxStrokeColor">
 
         <EditText
-            android:id="@+id/loginEmail"
+            android:id="@+id/signUpEmail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="exampleEmail@email.com"
@@ -133,7 +133,7 @@
         app:passwordToggleEnabled="true">
 
         <EditText
-            android:id="@+id/loginPassword"
+            android:id="@+id/signUpPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="exampleEmail@email.com"
@@ -147,7 +147,7 @@
     </com.google.android.material.textfield.TextInputLayout>
     <!--Create Account Button-->
     <Button
-        android:id="@+id/createAcc"
+        android:id="@+id/createAccBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/referenceLine"
@@ -174,7 +174,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/goBackToLogin"
+            android:id="@+id/goBackToLoginFromSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/lato"
@@ -182,7 +182,7 @@
             android:paddingEnd="2dp"
             android:text="@string/signUp_goBack"
             android:textColor="@color/forgotPassNewUserGoBackColor"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
 
     </LinearLayout>
