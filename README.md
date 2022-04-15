@@ -17,3 +17,15 @@
 = Made changes to design and abstracted colors,strings from all xmls to colors.xml and strings.xml                      
 = Basic functionality, good design and manueveralbilty achieved.                          
 = Fixed typos and added comments.                           
+
+--------------------------------------------------------
+
+**v0.2** 
+= Added functionality and validation checks in ForgotPasswordActivity. Validation check uses regex which works 99% of the time.No regex is perfect for emailId check.     
+= Added password validation and minimum password requirements.                  
+= Added vibrations to buttons and specific text for good user experience.                                               
+= Made all member variables private adhering to encapsulation.                                            
+= Added Utilities class that abstracts away the validation checks for other activities.                               
+= Used lambda expression instead of Anonymous new View.OnClickListener() coz there's no req. for Anonymous inner class.                        
+= Minor changes in design.                    
+= Fixed typos and added comments.                     
