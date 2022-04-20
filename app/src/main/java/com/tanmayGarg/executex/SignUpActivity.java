@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SignUpActivity extends AppCompatActivity {
 
     //Member variables
@@ -18,6 +21,9 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mSignUpPassword;
     private Button mCreateAccBtn;
     private TextView mGoBackToLoginFromSignUp;
+
+    //Firebase authentication object for registration of new user
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,9 @@ public class SignUpActivity extends AppCompatActivity {
         mCreateAccBtn = findViewById(R.id.createAccBtn);
         mGoBackToLoginFromSignUp = findViewById(R.id.goBackToLoginFromSignUp);
 
+        //creating a new instance of FirebaseAuth class
+        firebaseAuth = FirebaseAuth.getInstance();
+
         mCreateAccBtn.setOnClickListener(v -> {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
@@ -37,14 +46,20 @@ public class SignUpActivity extends AppCompatActivity {
             if (Utilities.checkValidityEmail(emailId)) {
                 //display a toast if user enters an invalid email
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
-            }
-            if (Utilities.checkValidityPassword(password)) {
+            } else if (Utilities.checkValidityPassword(password)) {
                 //display a toast if user enters an invalid password
                 Toast.makeText(getApplicationContext(), "Password must contains minimum eight characters, " +
-                        "at least one letter and one number", Toast.LENGTH_SHORT).show();
+                        "at least one letter and one number", Toast.LENGTH_LONG).show();
             } else {
                 //Add new account
-                Toast.makeText(getApplicationContext(), "New account...", Toast.LENGTH_SHORT).show();
+                firebaseAuth.createUserWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Registration was successful", Toast.LENGTH_SHORT).show();
+                        sendEmailVerification();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "User with email id already exists", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
@@ -56,6 +71,20 @@ public class SignUpActivity extends AppCompatActivity {
             startActivity(mainIntent);
         });
 
+    }
+
+    private void sendEmailVerification() {
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser != null) {
+            firebaseUser.sendEmailVerification().addOnCompleteListener(task -> {
+                Toast.makeText(getApplicationContext(), "We have sent an email with a confirmation link to your email address", Toast.LENGTH_LONG).show();
+                firebaseAuth.signOut();
+                finish();
+                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+            });
+        } else {
+            Toast.makeText(getApplicationContext(), "Failed to send verification email", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }

@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Objects;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
@@ -19,6 +21,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private EditText mRecoverEmailEditTxt;
     private Button mRecoverPasswordBtn;
     private TextView mGoBackToLoginFromForgotPass;
+
+    //Firebase authentication object for resetting password of existing user
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +35,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         mRecoverEmailEditTxt = findViewById(R.id.recoverEmailEditTxt);
         mRecoverPasswordBtn = findViewById(R.id.recoverPasswordBtn);
         mGoBackToLoginFromForgotPass = findViewById(R.id.goBackToLoginFromForgotPass);
+
+        //creating a new instance of FirebaseAuth class
+        firebaseAuth = FirebaseAuth.getInstance();
 
         //On click listener for goBackToLogin text which will then maneuver back to login page i.e. MainActivity
         mGoBackToLoginFromForgotPass.setOnClickListener(v -> {
@@ -49,7 +57,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
             } else {
                 //recover the password for entered email
-                Toast.makeText(getApplicationContext(), "Under Progress...", Toast.LENGTH_SHORT).show();
+                firebaseAuth.sendPasswordResetEmail(emailId).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "We have sent an email to reset password for your email address", Toast.LENGTH_LONG).show();
+                        finish();
+                        startActivity(new Intent(ForgotPasswordActivity.this, MainActivity.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "The email is not registered", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

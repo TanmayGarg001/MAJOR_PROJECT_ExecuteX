@@ -22,8 +22,8 @@
 
 
     <!--FORGOT PASSWORD ACTIVITY STRINGS-->
-    <string name="forgotPass_heading">Recover Password</string>
-    <string name="forgotPass_message">Please enter your email to recover \nthe password</string>
+    <string name="forgotPass_heading">Reset Password</string>
+    <string name="forgotPass_message">Please enter your email to reset \nthe password</string>
     <string name="forgotPass_recover">Recover</string>
     <string name="forgotPass_goBack"><u>Go back to login</u></string>
 
