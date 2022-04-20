@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "217164319740",
+    "project_id": "executex-31a47",
+    "storage_bucket": "executex-31a47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217164319740:android:01c1a317426aff9d938079",
+        "android_client_info": {
+          "package_name": "com.tanmayGarg.executex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217164319740-lv03t875463d0tfon7r47ichforl4vvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhFNxalJ5zkO3xdGPdNKZKS4m62CpVpHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217164319740-lv03t875463d0tfon7r47ichforl4vvq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
