@@ -29,3 +29,15 @@
 = Used lambda expression instead of Anonymous new View.OnClickListener() coz there's no req. for Anonymous inner class.                        
 = Minor changes in design.                    
 = Fixed typos and added comments.                     
+
+--------------------------------------------------------       
+
+**v0.3**    
+= Firebase projectID : executex-31XX7, link: https://console.firebase.google.com/u/0/project/executex-31XX7/overview    
+= Added JSON file to project/app directory.    
+= Linked to southAsia1 server for database and added dependancies for firebase authentication and firestore in android studio using Tools>Firebase>Authentication.     
+= Added emailVerification and process of creating a new user using firebase.    
+= Added resetEmail and verifcation for forgot password.   
+= Added login verification for existing user.   
+= Minor changes in design and fixed typos.    
+= Added more comments for self-documenting purposes.    
