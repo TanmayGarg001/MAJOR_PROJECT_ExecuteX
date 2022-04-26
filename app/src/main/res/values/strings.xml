@@ -4,7 +4,7 @@
     <string name="app_name">ExecuteX</string>
 
     <!--MAIN ACTIVITY STRINGS-->
-    <string name="homePage_hint_for_email">Email</string>
+    <string name="homePage_hint_for_email">Email</string>1
     <string name="homePage_hint_for_password">Password</string>
     <string name="homePage_welcome_message">Welcome to ExecuteX</string>
     <string name="homePage_signInBtn">Sign in</string>
@@ -26,5 +26,14 @@
     <string name="forgotPass_message">Please enter your email to reset \nthe password</string>
     <string name="forgotPass_recover">Recover</string>
     <string name="forgotPass_goBack"><u>Go back to login</u></string>
+
+    <!--NOTES ACTIVITY STRINGS-->
+    <string name="add_new_task">Add a new task</string>
+    <string name="logout_menu_option">Logout</string>
+    <string name="task_options">Options for a particular task</string>
+    <string name="task_title_home">Buy the listed groceries.</string>
+    <string name="task_detail_home">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book</string>
+    <string name="task_title">Task\'s title goes in here</string>
+    <string name="task_description">Task\'s description goes in here</string>
 
 </resources>

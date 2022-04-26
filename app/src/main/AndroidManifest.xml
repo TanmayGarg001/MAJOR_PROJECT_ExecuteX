@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExecuteX">
         <activity
+            android:name=".CreateTaskActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExecuteXActivity"
             android:exported="false" />
         <activity

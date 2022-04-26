@@ -53,11 +53,9 @@ public class MainActivity extends AppCompatActivity {
             String password = mLoginPassword.getText().toString();
             if (emailId.isEmpty() || password.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please fill the required fields", Toast.LENGTH_SHORT).show();
-            }
-            else if (Utilities.checkValidityEmail(emailId)) {
+            } else if (Utilities.checkValidityEmail(emailId)) {
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
-            }
-            else if (Utilities.checkValidityPassword(password)) {
+            } else if (Utilities.checkValidityPassword(password)) {
                 Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
             } else {
                 firebaseAuth.signInWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
@@ -89,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //verify the user's provided data with stored dataBase fireStore
     private void checkCredentials() {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         assert firebaseUser != null;

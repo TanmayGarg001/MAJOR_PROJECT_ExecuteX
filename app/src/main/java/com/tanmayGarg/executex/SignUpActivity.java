@@ -73,6 +73,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     }
 
+    //sends email verification to the registered user
     private void sendEmailVerification() {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if (firebaseUser != null) {

@@ -23,5 +23,11 @@
     <color name="btnTextColor">#212121</color>
     <color name="fancyDividerInputTextColor">#E0F7FA</color>
     <color name="forgotPassNewUserGoBackColor">#B3E5FC</color>
+    <color name="fabBtnBg">#228BE6</color>
+    <color name="taskHomeBg">#16171C</color>
+    <color name="taskLayoutBg">#1C1F26</color>
+    <color name="taskText">#F7FAFF</color>
+    <color name="taskEditBg">#2C313C</color>
+    <color name="hintTask">#989898</color>
 
 </resources>
