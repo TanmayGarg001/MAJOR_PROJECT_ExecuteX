@@ -40,4 +40,20 @@
 = Added resetEmail and verifcation for forgot password.   
 = Added login verification for existing user.   
 = Minor changes in design and fixed typos.    
-= Added more comments for self-documenting purposes.    
+= Added more comments for self-documenting purposes.                                          
+                                                
+--------------------------------------------------------                              
+                                              
+**v0.4**                                          
+= Added layouts for newTask and Cardview using Adapters.                                          
+= Added logout functionality using task_list.xml menu.                                                  
+= Added functionality for deleting the task.                                                     
+= Minor changes in design and fixed typos.                                          
+= Added CreateTask class to store task details in Database.                                                
+= Major changes to UI.                                   
+= Added icons, vector assests and more for design purposes.                                             
+= Added more comments for self-documenting purposes.                                       
+= Gradle upgraded from 7.1.2 to 7.1.3                
+            
+--------------------------------------------------------                    
+          
