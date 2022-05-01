@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mCreateNewAcc;
 
     //Firebase authentication object to login existing user
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         mCreateNewAcc = findViewById(R.id.createNewAcc);
 
         //creating a new instance of FirebaseAuth class
-        firebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();//if user has logged-in once then simple move to the ExecuteX activity
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();//if user has logged-in once then simple move to the ExecuteX activity
         if (firebaseUser != null) {
             finish();
             startActivity(new Intent(MainActivity.this, ExecuteXActivity.class));
@@ -53,12 +53,14 @@ public class MainActivity extends AppCompatActivity {
             String password = mLoginPassword.getText().toString();
             if (emailId.isEmpty() || password.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please fill the required fields", Toast.LENGTH_SHORT).show();
-            } else if (Utilities.checkValidityEmail(emailId)) {
+            }
+            else if (!Utilities.checkValidityEmail(emailId)) {
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
-            } else if (Utilities.checkValidityPassword(password)) {
+            }
+            else if (!Utilities.checkValidityPassword(password)) {
                 Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
             } else {
-                firebaseAuth.signInWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
+                mFirebaseAuth.signInWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         checkCredentials();
                     } else {
@@ -89,14 +91,14 @@ public class MainActivity extends AppCompatActivity {
 
     //verify the user's provided data with stored dataBase fireStore
     private void checkCredentials() {
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
         assert firebaseUser != null;
         if (firebaseUser.isEmailVerified()) {
             finish();
             startActivity(new Intent(MainActivity.this, ExecuteXActivity.class));
         } else {
             Toast.makeText(getApplicationContext(), "Please verify the email address", Toast.LENGTH_SHORT).show();
-            firebaseAuth.signOut();
+            mFirebaseAuth.signOut();
         }
     }
 

@@ -23,7 +23,7 @@ public class SignUpActivity extends AppCompatActivity {
     private TextView mGoBackToLoginFromSignUp;
 
     //Firebase authentication object for registration of new user
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,23 +36,26 @@ public class SignUpActivity extends AppCompatActivity {
         mGoBackToLoginFromSignUp = findViewById(R.id.goBackToLoginFromSignUp);
 
         //creating a new instance of FirebaseAuth class
-        firebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         mCreateAccBtn.setOnClickListener(v -> {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
             String emailId = mSignUpEmail.getText().toString().trim().toLowerCase();
             String password = mSignUpPassword.getText().toString();
-            if (Utilities.checkValidityEmail(emailId)) {
+            if (emailId.isEmpty() || password.isEmpty()) {
+                Toast.makeText(getApplicationContext(), "Please fill the required fields", Toast.LENGTH_SHORT).show();
+            }
+            if (!Utilities.checkValidityEmail(emailId)) {
                 //display a toast if user enters an invalid email
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
-            } else if (Utilities.checkValidityPassword(password)) {
+            } else if (!Utilities.checkValidityPassword(password)) {
                 //display a toast if user enters an invalid password
                 Toast.makeText(getApplicationContext(), "Password must contains minimum eight characters, " +
                         "at least one letter and one number", Toast.LENGTH_LONG).show();
             } else {
                 //Add new account
-                firebaseAuth.createUserWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
+                mFirebaseAuth.createUserWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "Registration was successful", Toast.LENGTH_SHORT).show();
                         sendEmailVerification();
@@ -75,11 +78,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     //sends email verification to the registered user
     private void sendEmailVerification() {
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
         if (firebaseUser != null) {
             firebaseUser.sendEmailVerification().addOnCompleteListener(task -> {
                 Toast.makeText(getApplicationContext(), "We have sent an email with a confirmation link to your email address", Toast.LENGTH_LONG).show();
-                firebaseAuth.signOut();
+                mFirebaseAuth.signOut();
                 finish();
                 startActivity(new Intent(SignUpActivity.this, MainActivity.class));
             });

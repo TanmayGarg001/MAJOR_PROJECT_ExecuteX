@@ -23,7 +23,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     private TextView mGoBackToLoginFromForgotPass;
 
     //Firebase authentication object for resetting password of existing user
-    private FirebaseAuth firebaseAuth;
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         mGoBackToLoginFromForgotPass = findViewById(R.id.goBackToLoginFromForgotPass);
 
         //creating a new instance of FirebaseAuth class
-        firebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
 
         //On click listener for goBackToLogin text which will then maneuver back to login page i.e. MainActivity
         mGoBackToLoginFromForgotPass.setOnClickListener(v -> {
@@ -52,12 +52,12 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
             String emailId = mRecoverEmailEditTxt.getText().toString().trim().toLowerCase();//we get the user entered emailId
-            if (Utilities.checkValidityEmail(emailId)) {
+            if (!Utilities.checkValidityEmail(emailId)) {
                 //display a toast if user enters an invalid email
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
             } else {
                 //recover the password for entered email
-                firebaseAuth.sendPasswordResetEmail(emailId).addOnCompleteListener(task -> {
+                mFirebaseAuth.sendPasswordResetEmail(emailId).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "We have sent an email to reset password for your email address", Toast.LENGTH_LONG).show();
                         finish();

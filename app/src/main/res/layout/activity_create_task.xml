@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,7 +14,7 @@
         android:background="@color/taskEditBg">
 
         <EditText
-            android:id="@+id/titleForTask"
+            android:id="@+id/titleOfTask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="Task title"
@@ -29,6 +30,7 @@
 
     <!--Description for the task-->
     <EditText
+        android:id="@+id/descriptionOfTask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/createTaskToolbar"
@@ -59,7 +61,8 @@
         android:background="@color/white"
         android:backgroundTint="@color/fabBtnBg"
         android:contentDescription="@string/add_new_task"
-
+        android:src="@drawable/ic_round_save_24"
+        app:maxImageSize="32dp"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-<!--    android:src="@drawable/save_icon"-->
+    <!--    android:src="@drawable/save_icon"-->
 </RelativeLayout>
