@@ -55,5 +55,18 @@
 = Added more comments for self-documenting purposes.                                       
 = Gradle upgraded from 7.1.2 to 7.1.3                
             
---------------------------------------------------------                    
-          
+--------------------------------------------------------                                                  
+                                                                                                            
+**v0.5**                                                                                                         
+= Inverted logic for Utilities Class.                                                                               
+= Added control flow, logic, variables and objects etc. to CreateTaskActivity.                                                                      
+= Changed read write rule.                                                                                           
+= Added Cloud Firestore functionality using DocumentReference : refers to a document location in a Cloud Firestore database and can                                
+be used to write, read, or listen to the location.                         
+= Added dependancy for FireBase UI in build.gradle app.                                              
+= Added fetching of data from Cloud Firestore to Recycler View using GridLayoutManager and FirestoreRecyclerAdapter.                                        
+= Fixed typos and added comments.        
+                  
+--------------------------------------------------------            
+
+
