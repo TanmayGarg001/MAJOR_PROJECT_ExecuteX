@@ -110,7 +110,19 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    <!--Login Button-->
+    <!--Progress Bar-->
+
+    <!--SignIn Button-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password"
+        android:layout_marginStart="50dp"
+        android:maxWidth="30dp"
+        android:minWidth="30dp"
+        android:visibility="invisible" />
+
     <Button
         android:id="@+id/signInBtn"
         android:layout_width="wrap_content"

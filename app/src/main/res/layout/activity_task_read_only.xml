@@ -1,68 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateTaskActivity">
 
-    <!--Title for task-->
+    <!--Title of the task-->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/editTaskToolbar"
+        android:id="@+id/readOnlyTaskToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/taskEditBg">
 
-        <EditText
+        <TextView
             android:id="@+id/taskTitleReadOnly"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="Task title"
             android:fontFamily="@font/lato"
-            android:hint="@string/task_title"
-            android:inputType="text"
-            android:padding="8dp"
+            android:hint="@string/task_title_readOnly"
+            android:padding="14dp"
             android:textColor="@color/white"
             android:textColorHint="@color/hintTask"
             android:textSize="18sp"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
-    <!--Description for the task-->
-    <EditText
+    <!--Description of the task-->
+    <TextView
         android:id="@+id/taskDescriptionReadOnly"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/editTaskToolbar"
+        android:layout_below="@id/readOnlyTaskToolbar"
         android:autofillHints="Task detail"
         android:background="@color/taskEditBg"
         android:fontFamily="@font/lato"
         android:gravity="top|start"
-        android:hint="@string/task_description"
-        android:inputType="text|textMultiLine"
-        android:paddingStart="22dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="22dp"
-        android:paddingBottom="4dp"
+        android:hint="@string/task_description_readOnly"
+        android:paddingStart="26dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="26dp"
+        android:paddingBottom="8dp"
         android:singleLine="false"
         android:textColor="@color/white"
         android:textColorHint="#C8C6C6"
         android:textSize="16sp" />
 
-    <!--Save task FloatingActionButton-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addNewTaskBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/fabBtnBg"
-        android:contentDescription="@string/add_new_task"
-        android:src="@drawable/ic_round_save_24"
-        app:maxImageSize="32dp"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-    <!--    android:src="@drawable/save_icon"-->
 </RelativeLayout>

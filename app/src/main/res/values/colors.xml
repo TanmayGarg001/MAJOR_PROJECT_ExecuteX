@@ -31,4 +31,13 @@
     <color name="taskEditBg">#2C313C</color>
     <color name="hintTask">#989898</color>
 
+    <!--RANDOM COLORS-->
+    <string-array name="colorsList">
+        <item>#373A47</item>
+        <item>#30323C</item>
+        <item>#2D2E37</item>
+        <item>#2C2F3C</item>
+        <item>#353640</item>
+    </string-array>
+
 </resources>

@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mForgotPassword;
     private Button mSignInBtn;
     private TextView mCreateNewAcc;
+    private ProgressBar mProgressBar;
 
     //Firebase authentication object to login existing user
     private FirebaseAuth mFirebaseAuth;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         mForgotPassword = findViewById(R.id.forgotPassword);
         mSignInBtn = findViewById(R.id.signInBtn);
         mCreateNewAcc = findViewById(R.id.createNewAcc);
+        mProgressBar = findViewById(R.id.progressBar);
 
         //creating a new instance of FirebaseAuth class
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -53,19 +57,19 @@ public class MainActivity extends AppCompatActivity {
             String password = mLoginPassword.getText().toString();
             if (emailId.isEmpty() || password.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please fill the required fields", Toast.LENGTH_SHORT).show();
-            }
-            else if (!Utilities.checkValidityEmail(emailId)) {
+            } else if (!Utilities.checkValidityEmail(emailId)) {
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
-            }
-            else if (!Utilities.checkValidityPassword(password)) {
+            } else if (!Utilities.checkValidityPassword(password)) {
                 Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
             } else {
+                mProgressBar.setVisibility(View.VISIBLE);
                 mFirebaseAuth.signInWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         checkCredentials();
                     } else {
                         Toast.makeText(getApplicationContext(), "User does not exist or invalid username/password", Toast.LENGTH_LONG).show();
                     }
+                    mProgressBar.setVisibility(View.INVISIBLE);
                 });
             }
         });

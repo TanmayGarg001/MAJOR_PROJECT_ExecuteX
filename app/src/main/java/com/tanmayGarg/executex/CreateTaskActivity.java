@@ -2,9 +2,11 @@ package com.tanmayGarg.executex;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -35,8 +37,8 @@ public class CreateTaskActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setTitle("Add a task");//change title of Action bar.
 
-        mTitleOfTask = findViewById(R.id.titleOfTask);
-        mDescriptionOfTask = findViewById(R.id.descriptionOfTask);
+        mTitleOfTask = findViewById(R.id.taskTitleReadOnly);
+        mDescriptionOfTask = findViewById(R.id.taskDescriptionReadOnly);
         mAddNewTaskBtn = findViewById(R.id.addNewTaskBtn);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -44,27 +46,34 @@ public class CreateTaskActivity extends AppCompatActivity {
         mFirebaseFirestore = FirebaseFirestore.getInstance();
 
         mAddNewTaskBtn.setOnClickListener(v -> {
-            String title = mTitleOfTask.getText().toString();
-            String description = mDescriptionOfTask.getText().toString();
+            String title = mTitleOfTask.getText().toString().trim();
+            String description = mDescriptionOfTask.getText().toString().trim();
             if (title.isEmpty() || description.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please fill the required fields", Toast.LENGTH_SHORT).show();
             } else {
-                DocumentReference documentReference = mFirebaseFirestore.collection("TaskRoot").//Tree hierarchy
-                        document(mFirebaseUser.getUid()).collection("TaskNode").document();
+                DocumentReference documentReference = mFirebaseFirestore.collection("taskRoot").//Tree hierarchy
+                        document(mFirebaseUser.getUid()).collection("taskNode").document();
 
                 HashMap<String, Object> task = new HashMap<>();
-                task.put("Title", title);
-                task.put("Description", description);
+                task.put("title", title);
+                task.put("description", description);
 
                 documentReference.set(task).addOnSuccessListener(unused -> {
                     Toast.makeText(getApplicationContext(), "Task was added", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(CreateTaskActivity.this, MainActivity.class));
                 }).addOnFailureListener(e -> {
                     Toast.makeText(getApplicationContext(), "Failed to add task", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(CreateTaskActivity.this, MainActivity.class));
                 });
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

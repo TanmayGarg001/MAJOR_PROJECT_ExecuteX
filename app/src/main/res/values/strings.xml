@@ -36,4 +36,8 @@
     <string name="task_title">Task\'s title goes in here</string>
     <string name="task_description">Task\'s description goes in here</string>
 
+    <!--TASK READ ONLY ACTIVITY STRINGS-->
+    <string name="task_title_readOnly">Task\'s title</string>
+    <string name="task_description_readOnly">Task\'s description</string>
+
 </resources>
