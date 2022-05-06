@@ -69,4 +69,14 @@ be used to write, read, or listen to the location.
                   
 --------------------------------------------------------            
 
+**v0.6**               
+= Fixed Major bug of null title and description and problem in fetching data from Cloud FireStore Database.                                
+= Added taskOpt options and rendomized colors for task.                                
+= More classes anbd layouts for Editing Task, Read Only Task added.                                
+= Delete functionality added.                                
+= Progress Bar added for good user experience.                                 
+= Changes to UI and added more comments, fixed typos.                                
+
+--------------------------------------------------------               
+
 
