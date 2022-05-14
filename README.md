@@ -77,6 +77,17 @@ be used to write, read, or listen to the location.
 = Progress Bar added for good user experience.                                 
 = Changes to UI and added more comments, fixed typos.                                
 
---------------------------------------------------------               
-
-
+--------------------------------------------------------                                                     
+                                                        
+**v1.0_StableBuild**                
+= App is now fully functional, all the layouts and activities work as they are supposed to do.                                                      
+= Added tons of comments to save time for future references and self-documenting purposes.                                                      
+= Optimized code using lambdas expressions and other various practices.                                                     
+= Designed the application icon for android.                                                      
+= Tested compatability on various android devices.                                                      
+= Fixed minor bugs and multiple warnings.                                                     
+= Changed some variable names and corrected typos.                                                      
+= Gradle upgraded from 7.1.2 to 7.2.0                                                     
+                                        
+--------------------------------------------------------     
+                                    
