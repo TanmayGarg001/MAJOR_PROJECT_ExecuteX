@@ -17,12 +17,13 @@ import java.util.Objects;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-    //Member variables
+    //All the required member variables , mapped from layout: activity_forgot_password.xml
+    //All are private adhering to Encapsulation (data hiding)
     private EditText mRecoverEmailEditTxt;
     private Button mRecoverPasswordBtn;
     private TextView mGoBackToLoginFromForgotPass;
 
-    //Firebase authentication object for resetting password of existing user
+    //Firebase authentication object to reset password of existing user
     private FirebaseAuth mFirebaseAuth;
 
     @Override
@@ -30,34 +31,33 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        Objects.requireNonNull(getSupportActionBar()).hide();//hide the title(Action) bar
+        //Hide the Action bar
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
+        //Mapping the respective views to their ID's
         mRecoverEmailEditTxt = findViewById(R.id.recoverEmailEditTxt);
         mRecoverPasswordBtn = findViewById(R.id.recoverPasswordBtn);
         mGoBackToLoginFromForgotPass = findViewById(R.id.goBackToLoginFromForgotPass);
 
-        //creating a new instance of FirebaseAuth class
-        mFirebaseAuth = FirebaseAuth.getInstance();
-
-        //On click listener for goBackToLogin text which will then maneuver back to login page i.e. MainActivity
-        mGoBackToLoginFromForgotPass.setOnClickListener(v -> {
-            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(50);
-            Intent mainIntent = new Intent(ForgotPasswordActivity.this, MainActivity.class);
-            startActivity(mainIntent);
-        });
+        //Getting the instance of FirebaseAuth
+        mFirebaseAuth = FirebaseAuth.getInstance();//Returns an instance of this class corresponding to the default FirebaseApp instance
 
         //On click listener for recoverPasswordBtn which will then send a verification email to the user.
         mRecoverPasswordBtn.setOnClickListener(v -> {
+
+            //Vibrates the android device using haptic feedback motor, for good user experience
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
-            String emailId = mRecoverEmailEditTxt.getText().toString().trim().toLowerCase();//we get the user entered emailId
-            if (!Utilities.checkValidityEmail(emailId)) {
-                //display a toast if user enters an invalid email
+
+            //Get the emailID and perform required operations.
+            String emailID = mRecoverEmailEditTxt.getText().toString().trim().toLowerCase();
+
+            //Control flow for the Recover button, checks for validity of email and displays toast accordingly
+            if (!Utilities.checkValidityEmail(emailID)) {
                 Toast.makeText(getApplicationContext(), "Please enter a valid email", Toast.LENGTH_SHORT).show();
             } else {
-                //recover the password for entered email
-                mFirebaseAuth.sendPasswordResetEmail(emailId).addOnCompleteListener(task -> {
+                //Recover the password for entered email
+                mFirebaseAuth.sendPasswordResetEmail(emailID).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         Toast.makeText(getApplicationContext(), "We have sent an email to reset password for your email address", Toast.LENGTH_LONG).show();
                         finish();
@@ -68,6 +68,15 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 });
             }
         });
+
+        //On click listener which will then maneuver back to MainActivity
+        mGoBackToLoginFromForgotPass.setOnClickListener(v -> {
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(50);
+            Intent mainIntent = new Intent(ForgotPasswordActivity.this, MainActivity.class);
+            startActivity(mainIntent);
+        });
+
     }
 
 }

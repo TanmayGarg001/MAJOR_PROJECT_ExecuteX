@@ -40,4 +40,8 @@
     <string name="task_title_readOnly">Task\'s title</string>
     <string name="task_description_readOnly">Task\'s description</string>
 
+    <!--EDIT TASK ACTIVITY STRINGS-->
+    <string name="task_title_edit_task">Title of the task</string>
+    <string name="task_description_edit_task">Title of the description</string>
+
 </resources>

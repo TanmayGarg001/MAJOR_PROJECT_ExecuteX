@@ -23,7 +23,6 @@
     <color name="btnTextColor">#212121</color>
     <color name="fancyDividerInputTextColor">#E0F7FA</color>
     <color name="forgotPassNewUserGoBackColor">#B3E5FC</color>
-
     <color name="fabBtnBg">#228BE6</color>
     <color name="taskHomeBg">#16171C</color>
     <color name="taskLayoutBg">#1C1F26</color>
@@ -34,10 +33,10 @@
     <!--RANDOM COLORS-->
     <string-array name="colorsList">
         <item>#373A47</item>
-        <item>#30323C</item>
-        <item>#2D2E37</item>
-        <item>#2C2F3C</item>
-        <item>#353640</item>
+        <item>#363947</item>
+        <item>#2E3039</item>
+        <item>#444755</item>
+        <item>#4A4E60</item>
     </string-array>
 
 </resources>

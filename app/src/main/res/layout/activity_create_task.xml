@@ -6,15 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".CreateTaskActivity">
 
-    <!--Title for task-->
+    <!--Title for the task-->
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/editTaskToolbar"
+        android:id="@+id/createTaskToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/taskEditBg">
 
         <EditText
-            android:id="@+id/taskTitleReadOnly"
+            android:id="@+id/taskTitleCreateTask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="Task title"
@@ -30,10 +30,10 @@
 
     <!--Description for the task-->
     <EditText
-        android:id="@+id/taskDescriptionReadOnly"
+        android:id="@+id/taskDescriptionCreateTask"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/editTaskToolbar"
+        android:layout_below="@id/createTaskToolbar"
         android:autofillHints="Task detail"
         android:background="@color/taskEditBg"
         android:fontFamily="@font/lato"
@@ -49,9 +49,9 @@
         android:textColorHint="#C8C6C6"
         android:textSize="16sp" />
 
-    <!--Save task FloatingActionButton-->
+    <!--Save task Floating Action Button-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addNewTaskBtn"
+        android:id="@+id/createNewTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -64,5 +64,5 @@
         android:src="@drawable/ic_round_save_24"
         app:maxImageSize="32dp"
         tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
-    <!--    android:src="@drawable/save_icon"-->
+
 </RelativeLayout>

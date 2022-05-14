@@ -29,7 +29,7 @@
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".CreateNewAccountActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

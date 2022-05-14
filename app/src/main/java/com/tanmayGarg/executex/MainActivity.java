@@ -18,7 +18,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    //member variables
+    //All the required member variables, mapped from layout: activity_main.xml
+    //All are private adhering to Encapsulation (data hiding)
     private EditText mLoginEmail;
     private EditText mLoginPassword;
     private TextView mForgotPassword;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Mapping the respective views to their ID's
         mLoginEmail = findViewById(R.id.loginEmail);
         mLoginPassword = findViewById(R.id.loginPassword);
         mForgotPassword = findViewById(R.id.forgotPassword);
@@ -41,20 +43,26 @@ public class MainActivity extends AppCompatActivity {
         mCreateNewAcc = findViewById(R.id.createNewAcc);
         mProgressBar = findViewById(R.id.progressBar);
 
-        //creating a new instance of FirebaseAuth class
-        mFirebaseAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();//if user has logged-in once then simple move to the ExecuteX activity
+        //Getting the instance of FirebaseAuth and current FireBaseUser
+        mFirebaseAuth = FirebaseAuth.getInstance();//Returns an instance of this class corresponding to the default FirebaseApp instance
+        FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
         if (firebaseUser != null) {
             finish();
-            startActivity(new Intent(MainActivity.this, ExecuteXActivity.class));
+            startActivity(new Intent(MainActivity.this, ExecuteXActivity.class));//If the user has logged-in once then simple maneuver to the ExecuteXActivity
         }
 
-        //On click listener which signs-in the user if the information provided exists in the database.
+        //On click listener which will sign-in the user if the information provided exists in the FirestoreDatabase.
         mSignInBtn.setOnClickListener(v -> {
+
+            //Vibrates the android device using haptic feedback motor, for good user experience
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
+
+            //Get the emailId and password entered by the user and perform required operations.
             String emailId = mLoginEmail.getText().toString().trim().toLowerCase();
             String password = mLoginPassword.getText().toString();
+
+            //Control flow for the Sign in button, checks if the data entered is fulfilling the constraints and displays toast accordingly
             if (emailId.isEmpty() || password.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "Please fill the required fields", Toast.LENGTH_SHORT).show();
             } else if (!Utilities.checkValidityEmail(emailId)) {
@@ -62,10 +70,11 @@ public class MainActivity extends AppCompatActivity {
             } else if (!Utilities.checkValidityPassword(password)) {
                 Toast.makeText(getApplicationContext(), "Invalid password", Toast.LENGTH_SHORT).show();
             } else {
+                //If everything is in order, then we Sign in the user else a toast is displayed.
                 mProgressBar.setVisibility(View.VISIBLE);
                 mFirebaseAuth.signInWithEmailAndPassword(emailId, password).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        checkCredentials();
+                        emailVerification();
                     } else {
                         Toast.makeText(getApplicationContext(), "User does not exist or invalid username/password", Toast.LENGTH_LONG).show();
                     }
@@ -74,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //On click listener which maneuvers to Forgot password acitivity {ForgotPasswordAcitivity}
+        //On click listener which maneuvers to ForgotPasswordActivity
         mForgotPassword.setOnClickListener(v -> {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
@@ -82,19 +91,19 @@ public class MainActivity extends AppCompatActivity {
             startActivity(forgotPasswordIntent);
         });
 
-        //On click listener which maneuvers to New Account creation activity {SignUpAcitivity}
+        //On click listener which maneuvers to CreateNewAccountActivity
         mCreateNewAcc.setOnClickListener(v -> {
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(50);
-            Intent sigUpIntent = new Intent(MainActivity.this, SignUpActivity.class);
+            Intent sigUpIntent = new Intent(MainActivity.this, CreateNewAccountActivity.class);
             startActivity(sigUpIntent);
         });
 
 
     }
 
-    //verify the user's provided data with stored dataBase fireStore
-    private void checkCredentials() {
+    //Helper function which checks if the user has verified the entered email address
+    private void emailVerification() {
         FirebaseUser firebaseUser = mFirebaseAuth.getCurrentUser();
         assert firebaseUser != null;
         if (firebaseUser.isEmailVerified()) {

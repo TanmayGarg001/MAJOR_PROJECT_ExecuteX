@@ -13,7 +13,8 @@ import java.util.Objects;
 
 public class TaskReadOnlyActivity extends AppCompatActivity {
 
-    //member variables
+    //All the required member variables, mapped from layout: activity_task_read_only.xml
+    //All are private adhering to Encapsulation (data hiding)
     TextView mTaskTitleReadOnly;
     TextView mTaskDescriptionReadOnly;
 
@@ -22,13 +23,16 @@ public class TaskReadOnlyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_read_only);
 
+        //Adds a back arrow at Action bar
         Toolbar toolbar = findViewById(R.id.readOnlyTaskToolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        //Mapping the respective views to their ID's
         mTaskTitleReadOnly = findViewById(R.id.taskTitleReadOnly);
         mTaskDescriptionReadOnly = findViewById(R.id.taskDescriptionReadOnly);
 
+        //Getting the intent that started this activity and setting the title and description of the clicked task
         Intent data = getIntent();
         mTaskTitleReadOnly.setText(data.getStringExtra("title"));
         mTaskDescriptionReadOnly.setText(data.getStringExtra("description"));
@@ -37,7 +41,7 @@ public class TaskReadOnlyActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
+            onBackPressed();//Called when the activity has detected the user's press of the back key
         }
         return super.onOptionsItemSelected(item);
     }

@@ -7,12 +7,14 @@
     android:background="@color/bgColor"
     tools:context=".MainActivity">
 
-    <!--Set reference line at center mid as a relative layout to achieve responsive layout.-->
+    <!--Set reference line at center mid as a relative layout
+        to achieve responsive layout-->
     <RelativeLayout
         android:id="@+id/referenceLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true" />
+
     <!--App name-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,6 +34,7 @@
             android:textSize="46sp" />
 
     </LinearLayout>
+
     <!--Welcome message-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +54,7 @@
             android:textSize="22sp" />
 
     </LinearLayout>
+
     <!--Email-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email"
@@ -80,6 +84,7 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <!--Password-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
@@ -110,9 +115,8 @@
             tools:ignore="SpeakableTextPresentCheck" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    <!--Progress Bar-->
 
-    <!--SignIn Button-->
+    <!--Progress Bar-->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -123,6 +127,7 @@
         android:minWidth="30dp"
         android:visibility="invisible" />
 
+    <!--SignIn Button-->
     <Button
         android:id="@+id/signInBtn"
         android:layout_width="wrap_content"
@@ -141,6 +146,7 @@
         android:textColor="@color/btnTextColor"
         android:textSize="18sp"
         tools:ignore="TextContrastCheck" />
+
     <!--Forgot Password-->
     <TextView
         android:id="@+id/forgotPassword"
@@ -154,6 +160,7 @@
         android:textAlignment="viewEnd"
         android:textColor="@color/forgotPassNewUserGoBackColor"
         android:textSize="18sp" />
+
     <!--Fancy Divider -->
     <LinearLayout
         android:id="@+id/OrDivider"
@@ -188,6 +195,7 @@
             android:layout_marginTop="10dp"
             android:background="@color/fancyDividerInputTextColor" />
     </LinearLayout>
+
     <!--New user account creation-->
     <LinearLayout
         android:layout_width="wrap_content"
