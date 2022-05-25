@@ -21,7 +21,7 @@
 --------------------------------------------------------
 
 **v0.2**                    
-= Added functionality and validation checks in ForgotPasswordActivity. Validation check uses regex which works 99% of the time.No regex is perfect for emailId check.     
+= Added functionality and validation checks in ForgotPasswordActivity. Validation check uses regex which works 99% of the time.No regex is perfect for emailId check.   
 = Added password validation and minimum password requirements.                  
 = Added vibrations to buttons and specific text for good user experience.                                               
 = Made all member variables private adhering to encapsulation.                                            
