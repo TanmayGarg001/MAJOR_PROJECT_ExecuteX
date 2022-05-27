@@ -91,7 +91,7 @@ be used to write, read, or listen to the location.
                                         
 --------------------------------------------------------     
                                     
-**v1.1_StableBuild**                      	 
+**v1.1_StableBuild**                                              	 
 = Added Speech to text functionality for easier-usage and to increase user base.                                         
 = Changed layouts of various XML files.                                   
 = Renamed references, changed control-flow and optimized code using lambda expressions.                                                
