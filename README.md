@@ -91,3 +91,14 @@ be used to write, read, or listen to the location.
                                         
 --------------------------------------------------------     
                                     
+**v1.1_StableBuild**                      	 
+= Added Speech to text functionality for easier-usage and to increase user base.                                         
+= Changed layouts of various XML files.                                   
+= Renamed references, changed control-flow and optimized code using lambda expressions.                                                
+= Tested compatability on various android devices.                                       
+= Fixed minor bugs and multiple warnings.                                 
+= Added comments for future references and self-documenting purposes.                                      
+= Gradle upgraded from 7.1.2 to 7.2.1           
+                                        
+--------------------------------------------------------            
+        
