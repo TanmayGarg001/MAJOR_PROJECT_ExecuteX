@@ -40,8 +40,16 @@
     <string name="task_title_readOnly">Task\'s title</string>
     <string name="task_description_readOnly">Task\'s description</string>
 
+    <!--CREATE TASK ONLY ACTIVITY STRINGS-->
+    <string name="task_title_create_task">Task\'s title goes in here</string>
+    <string name="task_description_create_task">Task\'s description goes in here</string>
+    <string name="task_speech_input_title_create_task">Task\'s title Mic ImageBtn</string>
+    <string name="task_speech_input_description_create_task">Task\'s description Mic ImageBtn</string>
+
     <!--EDIT TASK ACTIVITY STRINGS-->
     <string name="task_title_edit_task">Title of the task</string>
-    <string name="task_description_edit_task">Title of the description</string>
+    <string name="task_description_edit_task">Description of the task</string>
+    <string name="task_speech_input_title_edit_task">Task\'s title Mic ImageBtn</string>
+    <string name="task_speech_input_description_edit_task">Task\'s description Mic ImageBtn</string>
 
 </resources>

@@ -6,63 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".CreateTaskActivity">
 
-    <!--Title for the task-->
-    <androidx.appcompat.widget.Toolbar
+    <!--Linear Layout for the task-->
+    <LinearLayout
         android:id="@+id/createTaskToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/taskEditBg">
+        android:background="@color/taskEditBg"
+        android:orientation="horizontal"
+        android:paddingStart="8dp"
+        android:paddingEnd="0dp">
 
+        <!--Title of the task-->
         <EditText
             android:id="@+id/taskTitleCreateTask"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:autofillHints="Task title"
             android:fontFamily="@font/lato"
-            android:hint="@string/task_title"
+            android:hint="@string/task_title_create_task"
             android:inputType="text"
-            android:padding="8dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="0dp"
             android:textColor="@color/white"
             android:textColorHint="@color/hintTask"
             android:textSize="18sp"
             android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
 
-    <!--Description for the task-->
-    <EditText
-        android:id="@+id/taskDescriptionCreateTask"
+        <!--Image Button for the title of the task-->
+        <ImageButton
+            android:id="@+id/taskTitleMicCT"
+            android:layout_width="32sp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:backgroundTint="@color/taskEditBg"
+            android:contentDescription="@string/task_speech_input_title_create_task"
+            android:src="@drawable/ic_baseline_mic_24"
+            app:maxImageSize="32dp"
+            tools:ignore="ImageContrastCheck" />
+
+    </LinearLayout>
+
+    <!--Frame Layout for the Description-->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/createTaskToolbar"
-        android:autofillHints="Task detail"
-        android:background="@color/taskEditBg"
-        android:fontFamily="@font/lato"
-        android:gravity="top|start"
-        android:hint="@string/task_description"
-        android:inputType="text|textMultiLine"
-        android:paddingStart="22dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="22dp"
-        android:paddingBottom="4dp"
-        android:singleLine="false"
-        android:textColor="@color/white"
-        android:textColorHint="#C8C6C6"
-        android:textSize="16sp" />
+        android:layout_below="@id/createTaskToolbar">
 
-    <!--Save task Floating Action Button-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/createNewTaskButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/fabBtnBg"
-        android:contentDescription="@string/add_new_task"
-        android:src="@drawable/ic_round_save_24"
-        app:maxImageSize="32dp"
-        tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+        <!--Description of the task-->
+        <EditText
+            android:id="@+id/taskDescriptionCreateTask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autofillHints="Task detail"
+            android:background="@color/taskEditBg"
+            android:fontFamily="@font/lato"
+            android:gravity="top|start"
+            android:hint="@string/task_description_create_task"
+            android:inputType="text|textMultiLine"
+            android:paddingStart="22sp"
+            android:paddingTop="6dp"
+            android:paddingEnd="34dp"
+            android:paddingBottom="8dp"
+            android:singleLine="false"
+            android:textColor="@color/white"
+            android:textColorHint="#C8C6C6"
+            android:textSize="16sp" />
+
+        <!--Image Button for the description of the task-->
+        <ImageButton
+            android:id="@+id/taskDescriptionMicCT"
+            android:layout_width="32sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:backgroundTint="@color/taskEditBg"
+            android:contentDescription="@string/task_speech_input_description_create_task"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_baseline_mic_24"
+            app:maxImageSize="32dp"
+            tools:ignore="ImageContrastCheck" />
+
+        <!--Save task Floating Action Button-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/createNewTaskButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:backgroundTint="@color/fabBtnBg"
+            android:contentDescription="@string/add_new_task"
+            android:src="@drawable/ic_round_save_24"
+            app:maxImageSize="32dp"
+            tools:ignore="SpeakableTextPresentCheck,ImageContrastCheck" />
+
+    </FrameLayout>
 
 </RelativeLayout>

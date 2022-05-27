@@ -2,13 +2,14 @@ package com.tanmayGarg.executex;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,16 +17,21 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
+import java.util.Locale;
+
+import javax.annotation.Nullable;
 
 public class EditTaskActivity extends AppCompatActivity {
 
     //All the required member variables, mapped from layout: activity_edit_task.xml
     //All are private adhering to Encapsulation (data hiding)
-    EditText mTaskTitleEditTask;
-    EditText mTaskDescriptionEditTask;
-    FloatingActionButton mEditAndSaveTaskBtn;
+    private EditText mTaskTitleEditTask;
+    private EditText mTaskDescriptionEditTask;
+    private FloatingActionButton mEditAndSaveTaskBtn;
+    private ImageButton mTaskTitleMicET;
+    private ImageButton mTaskDescriptionMicET;
 
     //FirebaseUser and FirebaseFirestore object to edit and save task in FirestoreDatabase
     FirebaseUser mFirebaseUser;
@@ -36,21 +42,45 @@ public class EditTaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_task);
 
-        //Adds a back arrow at Action bar
-        Toolbar toolbar = findViewById(R.id.editTaskToolbar);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-
         //Mapping the respective views to their ID's
         mTaskTitleEditTask = findViewById(R.id.taskTitleEditTask);
         mTaskDescriptionEditTask = findViewById(R.id.taskDescriptionEditTask);
         mEditAndSaveTaskBtn = findViewById(R.id.editAndSaveTaskBtn);
+        mTaskTitleMicET = findViewById(R.id.taskTitleMicET);
+        mTaskDescriptionMicET = findViewById(R.id.taskDescriptionMicET);
 
         Intent data = getIntent();//Getting the intent that started this activity
 
         //Getting the instance of current FirebaseUser and instance of FirebaseFirestore
         mFirebaseFirestore = FirebaseFirestore.getInstance();
         mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        //On click listener which will update the task title from speech to text conversion
+        mTaskTitleMicET.setOnClickListener(v -> {
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);//Constants for supporting speech recognition through starting an Intent
+            //Starts an activity that will prompt the user for speech and send it through a speech recognizer.
+
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);//Informs the recognizer which speech model to prefer
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());//It will get the default language selected on android device
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Try saying something");//Label on the dialog box (prompt text)
+
+            startActivityForResult(intent, 10, null);//Launch an activity for which you would like a result when it finished.
+            // When this activity exits, your onActivityResult() method will be called with the given requestCode.
+        });
+
+        //On click listener which will update the task description from speech to text conversion
+        mTaskDescriptionMicET.setOnClickListener(v -> {
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);//Constants for supporting speech recognition through starting an Intent
+            //Starts an activity that will prompt the user for speech and send it through a speech recognizer.
+
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);//Informs the recognizer which speech model to prefer
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());//It will get the default language selected on android device
+            intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Try saying something");//Label on the dialog box (prompt text)
+
+            startActivityForResult(intent, 20, null);//Launch an activity for which you would like a result when it finished.
+            // When this activity exits, your onActivityResult() method will be called with the given requestCode.
+        });
 
         //Filling the task title and description whilst editing the task
         String taskTitle = data.getStringExtra("title");
@@ -101,6 +131,24 @@ public class EditTaskActivity extends AppCompatActivity {
             onBackPressed();//Called when the activity has detected the user's press of the back key
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    //Called when an activity you launched exits and we call it after the mic Buttons OCL.
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 10) {
+            if (resultCode == RESULT_OK && data != null) {//this result code will result in the mapping of the output to the title of the task
+                ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                mTaskTitleEditTask.setText(results.get(0));
+            }
+        }
+        if (requestCode == 20) {
+            if (resultCode == RESULT_OK && data != null) {//this result code will result in the mapping of the output to the description of the task
+                ArrayList<String> results = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                mTaskDescriptionEditTask.setText(results.get(0));
+            }
+        }
     }
 
 }

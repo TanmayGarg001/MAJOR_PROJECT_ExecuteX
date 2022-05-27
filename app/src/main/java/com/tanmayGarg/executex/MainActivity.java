@@ -1,3 +1,17 @@
+/*
+ * Build start date: 7/March/2022
+ *
+ * ExecuteX: A task execute manager which keeps track of all the tasks that user has queued.
+ * Heavily uses OOPS, AndroidOS knowledge, Debugging, Firebase and many more.
+ *
+ * Technologies used:
+ * Java17 (JDK: Amazon Corretto [LTS-version])
+ * Adobe XD
+ * Android Studio
+ * XML
+ * Build end date: 6/May/2022 (v1.1 Stable_FinalVersion)
+ *
+ */
 package com.tanmayGarg.executex;
 
 import android.content.Context;
