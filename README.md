@@ -103,7 +103,7 @@ be used to write, read, or listen to the location.
 --------------------------------------------------------            
         
 ## Project Images
-![Screenshot_1](https://user-images.githubusercontent.com/79107818/177514976-f6cb054e-acb2-44c6-861d-75db96cf7f2a.jpg width="1440" height="3120")
+![Screenshot_1](https://user-images.githubusercontent.com/79107818/177514976-f6cb054e-acb2-44c6-861d-75db96cf7f2a.jpg =250x250)
 
 ![Screenshot_2](https://user-images.githubusercontent.com/79107818/177514985-d9bb5688-0674-4717-a843-6eed8077badb.jpg)
 
