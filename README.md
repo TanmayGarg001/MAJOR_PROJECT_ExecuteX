@@ -128,7 +128,3 @@ be used to write, read, or listen to the location.
 ![Screenshot_12](https://user-images.githubusercontent.com/79107818/177515121-2e785c53-1997-4218-90fd-4f2a11b9b14c.jpg)
 
 ![Screenshot_13](https://user-images.githubusercontent.com/79107818/177515146-46fab6e2-ef0c-4389-99a5-20112a85d23e.jpg)
-
-
-
-
