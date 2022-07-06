@@ -103,7 +103,7 @@ be used to write, read, or listen to the location.
 --------------------------------------------------------            
         
 ## Project Images
-![Screenshot_1](https://user-images.githubusercontent.com/79107818/177514976-f6cb054e-acb2-44c6-861d-75db96cf7f2a.jpg =250x250)
+![Screenshot_1](https://user-images.githubusercontent.com/79107818/177514976-f6cb054e-acb2-44c6-861d-75db96cf7f2a.jpg)
 
 ![Screenshot_2](https://user-images.githubusercontent.com/79107818/177514985-d9bb5688-0674-4717-a843-6eed8077badb.jpg)
 
@@ -128,5 +128,7 @@ be used to write, read, or listen to the location.
 ![Screenshot_12](https://user-images.githubusercontent.com/79107818/177515121-2e785c53-1997-4218-90fd-4f2a11b9b14c.jpg)
 
 ![Screenshot_13](https://user-images.githubusercontent.com/79107818/177515146-46fab6e2-ef0c-4389-99a5-20112a85d23e.jpg)
+
+
 
 
